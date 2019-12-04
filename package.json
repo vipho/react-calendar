@@ -1,0 +1,43 @@
+{
+  "name": "react-calendat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vipho/react-calendar.git",
+  "author": "VIPHO",
+  "license": "MIT",
+  "scripts": {
+    "serve": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-decorators": "^7.7.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-react-pug": "^7.0.1",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.13.0",
+    "pug": "^2.0.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "reset-css": "^5.0.1",
+    "styled-components": "^4.4.1"
+  }
+}
