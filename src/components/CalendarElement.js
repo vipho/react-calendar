@@ -8,12 +8,28 @@ const CalendarElement = styled.td`
     padding: 8px;
     box-sizing: border-box;
     color: #999;
+    font-weight: ${props => props.bold ? 'bold' : 'normal'};
 `
 
-export default () => {
+export default (props) => {
+    const weekDays = [
+        'Воскресенье',
+        'Понедельник',
+        'Вторник',
+        'Среда',
+        'Четверг',
+        'Пятница',
+        'Суббота',
+    ]
+
+    function today(td) {
+        var d = new Date();
+        return td.getDate() == d.getDate() && td.getMonth() == d.getMonth() && td.getFullYear() == d.getFullYear();
+    }
+
     return (
-        <CalendarElement>
-            1
+        <CalendarElement bold={today(props.date)}>
+            {props.showDayName ? weekDays[props.date.getDay()] + ',' : null} {props.date.getDate()}
         </CalendarElement>
     )
 }
