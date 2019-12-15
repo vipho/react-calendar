@@ -1,9 +1,13 @@
 import React from 'react'
 
+// import Header from './components/Header'
+import Calendar from './components/Calendar'
+
 export default () => {
     return (
         <>
-            <h1>Hi!</h1>
+            {/*<Header/>*/}
+            <Calendar/>
         </>
     )
 }
