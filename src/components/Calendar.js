@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import CalendarButtonGroup from "./CalendarButtonGroup";
@@ -14,7 +14,13 @@ const Table = styled.table`
 `
 
 export default () => {
-    function getLine(startDay, year, month, isFirstLine = false) {
+    const today = new Date()
+    const [date, setDate] = useState(new Date(today.getFullYear(), today.getMonth()))
+
+    function getLine(startDay, isFirstLine = false) {
+        const year = date.getFullYear()
+        const month = date.getMonth()
+
         const line = []
         for (let i = 0; i < 7; i++) {
             line.push(
@@ -27,15 +33,12 @@ export default () => {
         return line
     }
 
-    function getCalendar(year, month) {
+    function getCalendar() {
+        const year = date.getFullYear()
+        const month = date.getMonth()
+
         let firstDayIndex = new Date(year, month, 1).getDay() // По умолчанию Воскресенье имеет индекс 0
-        if (firstDayIndex === 0) { // Делаем так, чтобы понедельник имел индекс 0
-            firstDayIndex = 5
-        } else if (firstDayIndex === 5) {
-            firstDayIndex = 0
-        } else {
-            firstDayIndex -= 1
-        }
+        firstDayIndex = firstDayIndex === 0 ? 6 : firstDayIndex - 1 // Делаем так, чтобы понедельник имел индекс
 
         const daysInMonth = new Date(year, month - 1, 0).getDate()
         const lineAmount = Math.ceil((firstDayIndex + daysInMonth) / 7)
@@ -44,7 +47,7 @@ export default () => {
         for (let i = 0; i < lineAmount; i++) {
             lines.push(
                 <tr key={i}>
-                    {getLine(7 * i - firstDayIndex, year, month, i === 0)}
+                    {getLine(7 * i - firstDayIndex + 1, i === 0)}
                 </tr>
             )
         }
@@ -54,11 +57,13 @@ export default () => {
     return (
         <Container>
             <div>
-                <CalendarButtonGroup/>
+                <CalendarButtonGroup
+                    date={date}
+                    setDate={setDate}
+                />
                 <Table>
                     <tbody>
-                    {/*<tr>{getFirstLine()}</tr>*/}
-                    {getCalendar(2019, 11)}
+                    {getCalendar()}
                     </tbody>
                 </Table>
             </div>

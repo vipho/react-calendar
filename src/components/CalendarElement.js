@@ -8,6 +8,7 @@ const CalendarElement = styled.td`
     padding: 8px;
     box-sizing: border-box;
     color: #999;
+    font-size: 14px;
     font-weight: ${props => props.bold ? 'bold' : 'normal'};
 `
 
