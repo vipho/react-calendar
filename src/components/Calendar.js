@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// import CalendarButtonGroup from "./CalendarButtonGroup";
+import CalendarButtonGroup from "./CalendarButtonGroup";
 import CalendarElement from './CalendarElement'
 
 const Container = styled.div`
@@ -25,7 +25,7 @@ export default () => {
     return (
         <Container>
             <div>
-                {/*<CalendarButtonGroup/>*/}
+                <CalendarButtonGroup/>
                 <Table>
                     <tbody>
                     {lines}
